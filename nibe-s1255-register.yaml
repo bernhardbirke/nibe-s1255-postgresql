@@ -1,0 +1,188 @@
+#nibe-s1255-register.yaml
+
+1:
+  titel: Aktuelle Aussenlufttemperatur
+  sensor: BT1
+  einheit: °C
+  register: 1
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+5:
+  titel: Aktuelle Vorlauftemperatur
+  sensor: BT2
+  einheit: °C
+  register: 5
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+7:
+  titel: Aktuelle Ruecklauftemperatur
+  sensor: BT3
+  einheit: °C
+  register: 7
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+10:
+  titel: Eintritt Waermequellenmedium
+  sensor: BT10
+  einheit: °C
+  register: 10
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+11:
+  titel: Austritt Waermequellenmedium
+  sensor: BT11
+  einheit: °C
+  register: 11
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+8:
+  titel: Brauchwasser, oben
+  sensor: BT7
+  einheit: °C
+  register: 8
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+9:
+  titel: Brauchwasserbereitung
+  sensor: BT6
+  einheit: °C
+  register: 9
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+26:
+  titel: Roomsensor
+  sensor: False
+  einheit: °C
+  register: 26
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+1017:
+  titel: Berechneter Vorlauf
+  sensor: False
+  einheit: °C
+  register: 1017
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+40:
+  titel: Volumenstrommesser
+  sensor: BF1
+  einheit: l/m
+  register: 40
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 2
+
+1010:
+  titel: Gradminuten
+  sensor: False
+  einheit: GM
+  register: 11
+  divisionsfaktor: 10
+  registertyp: MODBUS_HOLDING_REGISTER
+  variablengroesse: 3
+  beschreibung: signed integer
+  berechnung: negative Werte minus 2**16 rechnen (value = value-2**16 if value & 2**15 else value )
+
+1046:
+  titel: Verdichterfrequenz, Istwert
+  sensor: False
+  einheit: Hz
+  register: 1046
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 5
+
+1083:
+  titel: Verdichterstarts
+  sensor: False
+  einheit: False
+  register: 1083
+  divisionsfaktor: 1
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 3
+
+1087:
+  titel: Gesamtbetriebszeit Verdichter
+  sensor: False
+  einheit: h
+  register: 1087
+  divisionsfaktor: 1
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 3
+
+2166:
+  titel: Momentan verwendete Leistung
+  sensor: False
+  einheit: W
+  register: 2166
+  divisionsfaktor: 1
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 6
+  beschreibung: Leistung inkl. Pumpen, Warmwasserbereitung
+
+1583:
+  titel: Brauchwasser, nur Verdichter
+  sensor: False
+  einheit: kWh
+  register: 1583
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 6
+  beschreibung: Wärmemengenzähler Brauchwasser
+  faktor32bit: 0
+  berechnung: zum Ergebnis 2**16 * 0 addieren (16 bit statt 32)
+
+1585:
+  titel: Heizung, nur Verdichter
+  sensor: False
+  einheit: kWh
+  register: 1585
+  divisionsfaktor: 10
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 6
+  beschreibung: Wärmemengenzähler Heizung
+  faktor32bit: 4
+  berechnung: zum Ergebnis 2**16 * 4 addieren (16 bit statt 32)
+
+1120:
+  titel: Aktueller Status
+  sensor: False
+  einheit: False
+  register: 1120
+  divisionsfaktor: 1
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 6
+  beschreibung:
+    9: Standby
+    4139: Heizen
+    8235: Brauchwasserbereitung
+
+2196:
+  titel: Umschaltventil Brauchwasser
+  sensor: QN10
+  einheit: False
+  register: 2196
+  divisionsfaktor: 1
+  registertyp: MODBUS_INPUT_REGISTER
+  variablengroesse: 4
+  beschreibung:
+    1: Brauchwasserbereitung
+    0: Keine Brauchwasserbereitung
