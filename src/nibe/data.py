@@ -32,7 +32,7 @@ class NibeToPostgres:
         """establishes ModbusClient connection and returns it"""
         nibe_con = self.config.nibe_config()
         con = ModbusClient(
-            host=nibe_con["nibe_ip"], port=nibe_con["nibe_port"], auto_open=True
+            host=nibe_con["nibe_ip"], port=int(nibe_con["nibe_port"]), auto_open=True
         )
         if con:
             return con
