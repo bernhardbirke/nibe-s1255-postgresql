@@ -56,7 +56,7 @@ class NibeToPostgres:
     @staticmethod
     def process_value(
         raw_value, division_factor, register_name, other_param=0
-    ) -> float | int:
+    ) -> float:
         """modifies raw_value and returns processed data ready to store into database"""
         if register_name == "gradminuten":  # calculation for singnedint
             raw_value = raw_value - 2**16 if raw_value > 2**15 else raw_value

@@ -24,6 +24,10 @@ Module to use postgreSQL
 
     $ pip install psycopg2 or pip install psycopg2-binary
 
+## start the scripts
+
+    python -m src.nibe.__main__
+
 ## Simple way to request a data point
 
 Make sure to turn on ModbusTCP in the settings of the S1255 heat pump.
