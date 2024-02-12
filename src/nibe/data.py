@@ -76,6 +76,7 @@ class NibeToPostgres:
                     con = self.connect_modbus()
                     processed: dict = {}  # to store processed values
                     for reg_dict in yaml_config.values():
+                        logging.debug(f"register dictionary: {reg_dict}")
                         raw_value = self.get_response(
                             con, reg_dict["register"], reg_dict["registertyp"]
                         )
