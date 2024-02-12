@@ -46,9 +46,13 @@ class NibeToPostgres:
     def get_response(con: ModbusClient, register_no: int, registertype: str) -> int:
         """uses con to read register data and returns the raw data as int"""
         if registertype == "MODBUS_INPUT_REGISTER":
-            return int(con.read_input_registers(register_no))
+            return int(
+                con.read_input_registers(register_no)[0]
+            )  # take first value of list and convert to int
         elif registertype == "MODBUS_HOLDING_REGISTER":
-            return int(con.read_holding_registers(register_no))
+            return int(
+                con.read_holding_registers(register_no)[0]
+            )  # take first value of list and convert to int
         else:
             logging.error(f"Unknown register type: {registertype}", exc_info=True)
             raise UnknownRegisterTypeError("Registertype unknown")
