@@ -62,7 +62,13 @@ class NibeToPostgres:
         raw_value, division_factor, register_name, other_param=0
     ) -> float:
         """modifies raw_value and returns processed data ready to store into database"""
-        if register_name == "gradminuten":  # calculation for singnedint
+        if (
+            register_name == "gradminuten"
+            or register_name == "aktuelle_aussenlufttemperatur"
+            or register_name == "eintritt_waermequellenmedium"
+            or register_name == "austritt_waermequellenmedium"
+            or register_name == "roomsensor"
+        ):  # calculation for singnedint
             raw_value = raw_value - 2**16 if raw_value > 2**15 else raw_value
         if (
             register_name == "heizung_nur_verdichter"
