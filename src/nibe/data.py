@@ -26,7 +26,7 @@ class NibeToPostgres:
     ) -> None:
         self.config = config
         self.client = client
-        self.BACKOFF_INTERVAL: int = 30  # minimum interval between calls in seconds
+        self.BACKOFF_INTERVAL: int = 115  # minimum interval between calls in seconds
 
     def connect_modbus(self) -> ModbusClient:
         """establishes ModbusClient connection and returns it"""

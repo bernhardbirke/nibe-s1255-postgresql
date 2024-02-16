@@ -19,7 +19,7 @@ loggingFile: str = os.path.join(ROOT_DIR, "nibe_s1255.log")
 
 # config of logging module (DEBUG / INFO / WARNING / ERROR / CRITICAL)
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.WARNING,
     filename=loggingFile,
     encoding="utf-8",
     filemode="a",
