@@ -1,4 +1,5 @@
-#nibe-s1255-postgresql
+# nibe-s1255-postgresql
+
 This python script requests data from the heatpump nibe S1255 via Modbus TCP/IP and saves it to a postgresql database.
 
 ## create virtual environment
