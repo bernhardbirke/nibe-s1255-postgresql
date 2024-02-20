@@ -78,7 +78,7 @@ class PostgresTasks:
     ) -> int:
         """insert a new data row into the nibe table"""
         sql = """INSERT INTO nibe(time, aktuelle_aussenlufttemperatur, aktuelle_vorlauftemperatur, aktuelle_ruecklauftemperatur, eintritt_waermequellenmedium, austritt_waermequellenmedium, brauchwasser_oben, brauchwasserbereitung, roomsensor, berechneter_vorlauf, volumenstrommesser, gradminuten, verdichterfrequenz_istwert, verdichterstarts, gesamtbetriebszeit_verdichter, momentan_verwendete_leistung, brauchwasser_nur_verdichter, heizung_nur_verdichter, aktueller_status, umschaltventil_brauchwasser)
-                VALUES(NOW()::TIMESTAMP, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING data_id;"""
+                VALUES((NOW() AT TIME ZONE 'UTC'), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING data_id;"""
         conn = None
         data_id = None
         try:
